@@ -1,0 +1,31 @@
+{
+  "name": "user-registration-service",
+  "version": "1.0.0",
+  "description": "User registration flow using hmpps-forge library",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "tsx server.ts",
+    "dev": "tsx watch server.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "@ministryofjustice/hmpps-forge": "^0.4.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "govuk-frontend": "^6.5.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.17.10",
+    "@types/node": "^22.0.0",
+    "@types/nunjucks": "^3.2.6",
+    "tsx": "^4.19.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

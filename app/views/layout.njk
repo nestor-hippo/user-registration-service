@@ -1,0 +1,29 @@
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block head %}
+  <!--[if gt IE 8]><!-->
+  <link href="/govuk/govuk-frontend.min.css" rel="stylesheet">
+  <!--<![endif]-->
+{% endblock %}
+
+{% block pageTitle %}
+  {% if fieldValidationErrors.length or domainValidationErrors.length %}Error: {% endif %}{{ step.title }} - User Registration Service
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "User Registration Service",
+    serviceUrl: "/user-registration"
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script type="module" src="/govuk/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/govuk/govuk-frontend.min.js'
+    initAll()
+  </script>
+{% endblock %}

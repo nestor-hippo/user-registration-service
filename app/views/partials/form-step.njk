@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block beforeContent %}
+  {% if step.backlink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: step.backlink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set errors = getErrorSummaryList() %}
+      {% if errors.length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      <form method="post" novalidate>
+        {% for block in blocks %}
+          {{ block | safe }}
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
